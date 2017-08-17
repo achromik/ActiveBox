@@ -1,10 +1,9 @@
-$content-width:                 1200px
-$content-horizontal-padding:    15px
-
-$nav-height:                    100px
 
 
+$nav-height:                   100px
+$hero-layer-color:             rgba(43,46,74, 0.95)
 
+$hero-bg:                      url('../img/hero.jpg') 0 70%
 
 @mixin clearfix()
     &:after,
@@ -12,6 +11,42 @@ $nav-height:                    100px
         display: table
         content: ""
         cear: both
+
+
+
+.navbar
+    height: $nav-height
+    position: relative
+    top: 0
+    left: 0
+    z-index: 2
+    right: 0
+    .container
+        border-bottom: 1px solid rgba(255,255,255, .15)
+        padding: 0
+        height: $nav-height
+
+.navbar-header
+    position: absolute
+    top: 50%
+    transform: translateY(-50%);
+
+.jumbotron
+    background: $hero-bg
+    height: 100vh
+    width: 100%
+    background-size: cover
+    position: relative
+    padding: 0
+    
+    .layer
+        background-color: $hero-layer-color
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
+        height: 100%
+        width: 100%
 
 .row
     @include clearfix
