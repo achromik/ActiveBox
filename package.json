@@ -1,0 +1,28 @@
+{
+  "name": "achromik-active-box",
+  "version": "1.0.0",
+  "description": "2nd project from kodilla.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aleksander Chromik",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achromik/ActiveBox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/achromik/ActiveBox/issues"
+  },
+  "homepage": "https://github.com/achromik/ActiveBox#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

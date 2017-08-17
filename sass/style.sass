@@ -1,0 +1,19 @@
+$content-width:                 1200px
+$content-horizontal-padding:    15px
+
+$nav-height:                    100px
+
+
+
+
+@mixin clearfix()
+    &:after,
+    &:before
+        display: table
+        content: ""
+        cear: both
+
+.row
+    @include clearfix
+
+    
