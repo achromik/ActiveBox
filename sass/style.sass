@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:700')
+
+
+$nav-font:                     'Raleway', sans-serif 
+$nav-font-color:                rgba(255, 255, 255, 0.75)
 
 
 $nav-height:                   100px
@@ -15,21 +20,38 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%
 
 
 .navbar
-    height: $nav-height
-    position: relative
-    top: 0
+
+    top: ($nav-height - 50px)/2
     left: 0
     z-index: 2
     right: 0
-    .container
+    .bottom-line
         border-bottom: 1px solid rgba(255,255,255, .15)
-        padding: 0
-        height: $nav-height
+        margin-top: ($nav-height - 50px)/2
 
-.navbar-header
-    position: absolute
-    top: 50%
-    transform: translateY(-50%);
+
+.navbar-header,
+    // position: absolute
+    // top: 50%
+    // transform: translateY(-50%);
+
+.navbar-nav
+    >li
+        >a
+            padding-top: 15px
+            padding-bottom: 15px
+            text-transform: uppercase
+            color: $nav-font-color
+            font-weight: 700
+            font-size: 13px
+            font-family: $nav-font
+            &:hover
+                background-color: rgba(238, 238, 238, 0.15)
+
+.navbar-toggle
+    background-color: rgba(255, 255, 255, 0.15)
+    span 
+        background-color: $nav-font-color
 
 .jumbotron
     background: $hero-bg
@@ -51,4 +73,17 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%
 .row
     @include clearfix
 
-    
+@media (max-width: 991px) 
+    $nav-height: 50px
+
+    .navbar
+        top: ($nav-height - 50px)/2
+        .bottom-line
+            margin-top: ($nav-height - 50px)/2
+    .container
+        >.navbar-collapse
+            margin: 0
+
+    .navbar-brand
+        img
+            max-width: 150px
