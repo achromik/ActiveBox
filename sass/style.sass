@@ -5,10 +5,11 @@ $nav-font:                     'Raleway', sans-serif
 $nav-font-color:                rgba(255, 255, 255, 0.75)
 
 
-$nav-height:                   100px
-$hero-layer-color:             rgba(43,46,74, 0.95)
+$nav-height:                   100px                    //normal height
+$nav-height-min:               50px                     //height on mobile devices <992px
 
-$hero-bg:                      url('../img/hero.jpg') 0 70%
+$hero-layer-color:             rgba(43,46,74, 0.95)     //color of layer in hero/jumbotron
+$hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's bg
 
 @mixin clearfix()
     &:after,
@@ -45,8 +46,17 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%
             font-weight: 700
             font-size: 13px
             font-family: $nav-font
+            transition-property: color, background, padding, margin
+            transition-duration: .5s, .2s, .4s, .4s
+            transition-delay: .2s, .0s, 0s, 0s
             &:hover
                 background-color: rgba(238, 238, 238, 0.15)
+                color: white
+                transition-property: color, background, padding, margin
+                transition-duration: .2s, .2s, .4s, .4s
+                transition-delay: .4s, .0s, 0s, 0s
+                padding-bottom: 5px
+                margin-top: -5px
 
 .navbar-toggle
     background-color: rgba(255, 255, 255, 0.15)
@@ -74,12 +84,13 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%
     @include clearfix
 
 @media (max-width: 991px) 
-    $nav-height: 50px
+    
 
     .navbar
-        top: ($nav-height - 50px)/2
+        top: ($nav-height-min - 50px)/2
         .bottom-line
-            margin-top: ($nav-height - 50px)/2
+            margin-top: ($nav-height-min - 50px)/2
+
     .container
         >.navbar-collapse
             margin: 0
@@ -87,3 +98,10 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%
     .navbar-brand
         img
             max-width: 150px
+
+@media (max-width: 767px) 
+
+    .container
+        >.navbar-collapse
+            background-color: rgba(255,255,255,.05)
+            text-align: center
