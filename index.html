@@ -22,13 +22,24 @@
                     $(this).collapse('hide');
                 }
 			});
+
+			$(window).scroll(function() {
+
+				if ($(this).scrollTop()>25) {
+						$('.navbar').fadeOut();
+				}
+				else {
+					$('.navbar').fadeIn();
+				}
+
+			});
 		</script>
 	</head>
 	<body>
 		<section class="jumbotron">
 			<div class="layer"> 
 			</div>
-			<nav class="navbar container">
+			<nav class="navbar container navbar-fixed-top">
 				
 					<!-- Brand a toogle button form mobile devices -->
 					<div class="navbar-header">
@@ -56,6 +67,14 @@
 				<div class="bottom-line">
 				</div>
 			</nav>
+			<div class="wraper">
+				<h1>Your Favorite One Page Multi Purpose Template</h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa cupiditate reprehenderit ratione? Facere, dicta? Dicta.</p>
+				<a href="#works" class="btn btn-danger">Find out more</a>
+
+			</div>	
+		</section>
+		<section style="height: 100vh">
 		</section>
 	</body>
 </html>

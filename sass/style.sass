@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:700')
-
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,900')
 
 $nav-font:                     'Raleway', sans-serif 
 $nav-font-color:                rgba(255, 255, 255, 0.75)
-
+$hero-font:                    'Open Sans', sans-serif
+$hero-font-color:               white 
 
 $nav-height:                   100px                    //normal height
 $nav-height-min:               50px                     //height on mobile devices <992px
 
+$button-color:                 #e74545
 $hero-layer-color:             rgba(43,46,74, 0.95)     //color of layer in hero/jumbotron
 $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's bg
 
@@ -16,12 +18,11 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
     &:before
         display: table
         content: ""
-        cear: both
+        clear: both
 
 
 
 .navbar
-
     top: ($nav-height - 50px)/2
     left: 0
     z-index: 2
@@ -29,12 +30,6 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
     .bottom-line
         border-bottom: 1px solid rgba(255,255,255, .15)
         margin-top: ($nav-height - 50px)/2
-
-
-.navbar-header,
-    // position: absolute
-    // top: 50%
-    // transform: translateY(-50%);
 
 .navbar-nav
     >li
@@ -57,7 +52,7 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
                 transition-delay: .3s, .0s, 0s, 0s, .3s
                 padding-bottom: 20px
                 margin-top: -5px
-                text-shadow: 2px 2px 4px #000;
+                text-shadow: 2px 2px 4px #000
 
 .navbar-toggle
     background-color: rgba(255, 255, 255, 0.15)
@@ -71,7 +66,7 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
     background-size: cover
     position: relative
     padding: 0
-    
+    margin-bottom: 0
     .layer
         background-color: $hero-layer-color
         position: absolute
@@ -80,12 +75,51 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         z-index: 1
         height: 100%
         width: 100%
+    .wraper
+        position: absolute
+        z-index: 1
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        align-content: center
+        // height: calc(100vh - #{$nav-height})
+        height: 100vh
+        width: 100%
+        color: $hero-font-color
+        text-align: center
+        h1
+            font-size: 65px
+            font-weight: 600
+            font-family: $hero-font
+            flex: 0 1 auto
+            text-transform: uppercase
+            max-width: 875px
+            margin-top: $nav-height
+        p
+            font-size: 22px
+            font-family: $nav-font
+            max-width: 875px
+            font-weight: 300
+            flex: 0 1 auto
+        a 
+            text-transform: uppercase
+            padding: 10px 25px
+            background-color: $button-color
+            border: 0
+            border-radius: 0
+            font-size: 13px
+            font-family: $nav-font
+            font-weight: 500
+            margin-top: 80px
+            &:hover
+                background-color: adjust-color($button-color, $red: -32, $green: -32, $blue: -32)
 
 .row
     @include clearfix
 
+
 @media (max-width: 991px) 
-    
 
     .navbar
         top: ($nav-height-min - 50px)/2
@@ -100,13 +134,20 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         img
             max-width: 150px
 
+
 @media (max-width: 767px) 
 
     .container
         >.navbar-collapse
-            background-color: rgba(255,255,255,.05)
+            background-color: rgba(35, 35, 75, 0.96)
             text-align: center
 
+    .jumbotron    
+        .wraper
+            h1 
+                font-size: calc(35px + 15 * ((100vw - 320px) / 347))
+            p 
+                font-size: calc(16px + 6 * ((100vw - 320px) / 347))
     .navbar-nav
         >li
             >a
@@ -115,3 +156,10 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
                     padding-bottom: 15px
                     margin-top: 0 
                     transition-delay: .0s, .0s, 0s, 0s, .0s
+    //fixing navbar-top 
+    // .navbar
+    //     position: fixed
+
+    // .jumbotron
+    //     .wraper
+    //         height: 100vh 
