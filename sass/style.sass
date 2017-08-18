@@ -46,17 +46,18 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
             font-weight: 700
             font-size: 13px
             font-family: $nav-font
-            transition-property: color, background, padding, margin
-            transition-duration: .5s, .2s, .4s, .4s
-            transition-delay: .2s, .0s, 0s, 0s
+            transition-property: color, background, padding, margin, text-shadow
+            transition-duration: .3s, .3s, .3s, .3s, .3s
+            transition-delay: .0s, .3s, .3s, .3s, .0s
             &:hover
                 background-color: rgba(238, 238, 238, 0.15)
                 color: white
-                transition-property: color, background, padding, margin
-                transition-duration: .2s, .2s, .4s, .4s
-                transition-delay: .4s, .0s, 0s, 0s
-                padding-bottom: 5px
+                transition-property: color, background, padding, margin, text-shadow
+                transition-duration: .3s, .3s, .3s, .3s, .3s
+                transition-delay: .3s, .0s, 0s, 0s, .3s
+                padding-bottom: 20px
                 margin-top: -5px
+                text-shadow: 2px 2px 4px #000;
 
 .navbar-toggle
     background-color: rgba(255, 255, 255, 0.15)
@@ -105,3 +106,12 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         >.navbar-collapse
             background-color: rgba(255,255,255,.05)
             text-align: center
+
+    .navbar-nav
+        >li
+            >a
+                transition-delay: .0s, .0s, 0s, 0s, .0s
+                &:hover
+                    padding-bottom: 15px
+                    margin-top: 0 
+                    transition-delay: .0s, .0s, 0s, 0s, .0s
