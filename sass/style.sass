@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900')
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,900')
+
 
 $nav-font:                     'Raleway', sans-serif 
 $nav-font-color:                rgba(255, 255, 255, 0.75)
@@ -94,14 +93,18 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
             font-family: $hero-font
             flex: 0 1 auto
             text-transform: uppercase
-            max-width: 875px
+            max-width: 900px
             margin-top: $nav-height
+            padding-left: 15px
+            padding-right: 15px
         p
             font-size: 22px
             font-family: $nav-font
             max-width: 875px
             font-weight: 300
             flex: 0 1 auto
+            padding-left: 15px
+            padding-right: 15px
         a 
             text-transform: uppercase
             padding: 10px 25px
@@ -126,6 +129,15 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         .bottom-line
             margin-top: ($nav-height-min - 50px)/2
 
+    .jumbotron    
+        .wraper
+            h1 
+                font-size: 55px
+                max-width: 650px
+            p  
+                font-size: 20px 
+                max-width: 650px          
+
     .container
         >.navbar-collapse
             margin: 0
@@ -145,9 +157,9 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
     .jumbotron    
         .wraper
             h1 
-                font-size: calc(35px + 15 * ((100vw - 320px) / 347))
+                font-size: calc(35px + 15 * ((100vw - 320px) / 447))
             p 
-                font-size: calc(16px + 6 * ((100vw - 320px) / 347))
+                font-size: calc(16px + 4 * ((100vw - 320px) / 447))
     .navbar-nav
         >li
             >a
