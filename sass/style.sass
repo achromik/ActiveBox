@@ -1,16 +1,29 @@
 
 
-$nav-font:                     'Raleway', sans-serif 
+$main-font:                     'Raleway', sans-serif 
 $nav-font-color:                rgba(255, 255, 255, 0.75)
-$hero-font:                    'Open Sans', sans-serif
+$secondary-font:                'Open Sans', sans-serif
 $hero-font-color:               white 
 
-$nav-height:                   100px                    //normal height
-$nav-height-min:               50px                     //height on mobile devices <992px
+$nav-height:                    100px                    //normal height
+$nav-height-min:                50px                     //height on mobile devices <992px
 
-$button-color:                 #e74545
-$hero-layer-color:             rgba(43,46,74, 0.95)     //color of layer in hero/jumbotron
-$hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's bg
+$button-color:                  #e74545
+$hero-layer-color:              rgba(43,46,74, 0.9)     //color of layer in hero/jumbotron
+$hero-bg:                       url('../img/bg2.jpeg') 0 70%  //image on hero's bg
+
+$footer-color:                  #393d63
+$footer-font-color:             $nav-font-color   
+$footer-main-color:             $hero-font-color 
+$credits-bg-color:              #313353
+$credits-main-font-color:       $nav-font-color
+$credits-add-font-color:        $hero-font-color
+
+=square($width)
+    height:         $width
+    width:          $width
+    line-height:    $width
+
 
 @mixin clearfix()
     &:after,
@@ -19,7 +32,31 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         content: ""
         clear: both
 
+.row
+    @include clearfix
 
+header
+    &::after
+        content: ''
+        background: $hero-bg no-repeat
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        width: 100%
+        height: 100vh
+        background-attachment: fixed
+        background-size: cover
+        
+
+.layer
+    background-color: $hero-layer-color
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    height: 100vh
+    width: 100%
 
 .navbar
     top: ($nav-height - 50px)/2
@@ -39,7 +76,7 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
             color: $nav-font-color
             font-weight: 700
             font-size: 13px
-            font-family: $nav-font
+            font-family: $main-font
             transition-property: color, background, padding, margin, text-shadow
             transition-duration: .3s, .3s, .3s, .3s, .3s
             transition-delay: .0s, .3s, .3s, .3s, .0s
@@ -59,21 +96,14 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         background-color: $nav-font-color
 
 .jumbotron
-    background: $hero-bg
+    // background: $hero-bg
     height: 100vh
     width: 100%
-    background-size: cover
+    // background-size: cover
     position: relative
     padding: 0
     margin-bottom: 0
-    .layer
-        background-color: $hero-layer-color
-        position: absolute
-        top: 0
-        left: 0
-        z-index: 1
-        height: 100%
-        width: 100%
+    
     .wraper
         position: absolute
         z-index: 1
@@ -90,7 +120,7 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
         h1
             font-size: 65px
             font-weight: 600
-            font-family: $hero-font
+            font-family: $secondary-font
             flex: 0 1 auto
             text-transform: uppercase
             max-width: 900px
@@ -99,7 +129,7 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
             padding-right: 15px
         p
             font-size: 22px
-            font-family: $nav-font
+            font-family: $main-font
             max-width: 875px
             font-weight: 300
             flex: 0 1 auto
@@ -112,15 +142,59 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
             border: 0
             border-radius: 0
             font-size: 13px
-            font-family: $nav-font
+            font-family: $main-font
             font-weight: 500
             margin-top: 80px
             &:hover
                 background-color: adjust-color($button-color, $red: -32, $green: -32, $blue: -32)
 
-.row
-    @include clearfix
-
+footer
+    position: relative
+    height: 340px
+    background-color: $footer-color 
+    color: white
+    font-family: $main-font
+    text-align: center
+    .row
+        padding-top: 50px
+    h3 
+        font-weight: bold 
+        font-size: 14px 
+        color: white
+        text-transform: uppercase
+        margin-bottom: 15px
+    p
+        color: $footer-font-color
+    .social-tiles
+        .fa
+            +square(40px)
+            color: $footer-main-color
+            border: 2px solid $footer-main-color
+            border-radius: 1px
+            &.fa-facebook
+                &:hover
+                    background-color: blue
+                
+    .credits
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+        height: 95px
+        width: auto
+        background-color: $credits-bg-color
+        p
+            color: $credits-main-font-color
+            top: 50%
+            position: absolute
+            transform: translate(-50%, -50%)
+            left: 50%
+            width: max-content
+            .fa-heart
+                color: red
+            b
+                color: $credits-add-font-color
+                font-weight: bold    
 
 @media (max-width: 991px) 
 
@@ -168,6 +242,12 @@ $hero-bg:                      url('../img/hero.jpg') 0 70%  //image on hero's b
                     padding-bottom: 15px
                     margin-top: 0 
                     transition-delay: .0s, .0s, 0s, 0s, .0s
+
+    footer
+        .credits
+            height: 50px
+            font-size: 11px
+        
     //fixing navbar-top 
     // .navbar
     //     position: fixed
