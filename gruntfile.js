@@ -16,6 +16,25 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        
+        postcss: {
+            options: {
+              map: {
+                  inline: false, // save all sourcemaps as separate files... 
+                  annotation: '/css/' // ...to the specified directory 
+              },
+         
+              processors: [
+                require('pixrem')(), // add fallbacks for rem units 
+                require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes 
+                require('cssnano')() // minify the result 
+              ]
+            },
+            dist: {
+              src: 'css/*.css'
+            }
+          },
+
 
         imagemin: {
             dynamic: {
@@ -28,18 +47,18 @@ module.exports = function(grunt) {
             }
         },
 
-        cssmin: {
-            target: {
-                files: [{
-                    expand: true,
-                    cwd: 'css', 
-                    src: ['**/*.css', '!**/*.min.css'],
-                    dest: 'css',
-                    ext: '.min.css'
-                }]
+        // cssmin: {
+        //     target: {
+        //         files: [{
+        //             expand: true,
+        //             cwd: 'css', 
+        //             src: ['**/*.css', '!**/*.min.css'],
+        //             dest: 'css',
+        //             ext: '.min.css'
+        //         }]
 
-            }
-        },
+        //     }
+        // },
 
         watch: {
             sass: {
@@ -58,13 +77,13 @@ module.exports = function(grunt) {
                 },               
             },
 
-            cssmin: {
-                files: ['**/*.css','!**/*.min.css'],
-                tasks: ['cssmin'],
-                options: {
-                    spawn: true,
-                },
-            },
+            // cssmin: {
+            //     files: ['**/*.css','!**/*.min.css'],
+            //     tasks: ['cssmin'],
+            //     options: {
+            //         spawn: true,
+            //     },
+            // },
         },
 
         browserSync: {
@@ -86,6 +105,7 @@ module.exports = function(grunt) {
 
     // Load the plugins tasks
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
@@ -93,6 +113,6 @@ module.exports = function(grunt) {
 
 
     // Default task(s).
-    grunt.registerTask('default', ['sass', 'imagemin', 'cssmin', 'browserSync', 'watch']);
+    grunt.registerTask('default', ['sass', 'postcss:dist', 'imagemin', 'browserSync', 'watch']);
 
 };

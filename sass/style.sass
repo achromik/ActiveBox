@@ -12,6 +12,9 @@ $button-color:                  #e74545
 $hero-layer-color:              rgba(43,46,74, 0.9)     //color of layer in hero/jumbotron
 $hero-bg:                       url('../img/bg2.jpeg') 0 70%  //image on hero's bg
 
+$clients-font:                 'Cardo', serif
+$clients-2nd-font:              $main-font
+
 $footer-color:                  #393d63
 $footer-font-color:             $nav-font-color   
 $footer-main-color:             $hero-font-color 
@@ -135,22 +138,72 @@ header
             flex: 0 1 auto
             padding-left: 15px
             padding-right: 15px
-        a 
-            text-transform: uppercase
-            padding: 10px 25px
-            background-color: $button-color
-            border: 0
-            border-radius: 0
-            font-size: 13px
-            font-family: $main-font
-            font-weight: 500
+        a
             margin-top: 80px
-            &:hover
-                background-color: adjust-color($button-color, $red: -32, $green: -32, $blue: -32)
+            padding: 15px 50px    
+
+.btn 
+    text-transform: uppercase
+    padding: 10px 25px
+    background-color: $button-color
+    border: 0
+    border-radius: 2px
+    font-size: 13px
+    font-family: $main-font
+    font-weight: 500
+    color: $nav-font-color
+    transition: .3s
+    &:hover
+        background-color: adjust-color($button-color, $red: -32, $green: -32, $blue: -32)
+        color: $hero-font-color 
+        font-weight: 600
+
+.clients
+    background-color: #533549
+    padding: 0
+
+.carousel-caption
+    background-color: rgba(83, 53, 73, .7)
+    margin-bottom: 20px
+    padding: 20px 25px
+    position: static
+    
+    q
+        
+        font-family: $clients-font
+        font-style: italic
+        font-size: calc(15px + 5 * ((100vw - 320px) / 448))
+    p
+        font-family: $clients-2nd-font
+        font-weight: 600
+        font-size: 10px
+        margin-top: 30px
+
+
+.download
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    align-content: center
+    min-height: 340px
+    font-family: $main-font
+    text-align: center
+    padding: 20px 25px
+    h2
+        font-size: 28px
+        font-weight: 300
+    p
+        font-size: 13px
+        font-weight: 700
+        text-transform: uppercase
+    a
+        padding: 20px 80px
+        margin-top: 15px
 
 footer
     position: relative
-    height: 340px
+    min-height: 340px
     background-color: $footer-color 
     color: white
     font-family: $main-font
@@ -171,9 +224,16 @@ footer
             color: $footer-main-color
             border: 2px solid $footer-main-color
             border-radius: 1px
+            font-size: 22px
             &.fa-facebook
                 &:hover
-                    background-color: blue
+                    background-color: #3b5998
+            &.fa-twitter
+                &:hover
+                    background-color: #55acee
+            &.fa-linkedin-square
+                &:hover
+                    background-color: #007bb5
                 
     .credits
         position: absolute
@@ -243,10 +303,38 @@ footer
                     margin-top: 0 
                     transition-delay: .0s, .0s, 0s, 0s, .0s
 
+    .downloads
+
     footer
+        padding-bottom: 100px 
         .credits
             height: 50px
             font-size: 11px
+
+@media (min-width: 767px) 
+
+    .carousel
+        img
+            width: 50%
+
+        .carousel-indicators
+            left: 75%
+            width: 30%
+            margin-left: -15%
+            bottom: 5%
+        .carousel-caption
+            position: absolute
+            width: 40%
+            top: 10%
+            left: 75%
+            margin-left: -20%   
+            text-align: left
+            q
+                font-size: calc(20px + 16 * ((100vw - 768px) / 431))
+            p
+                font-size: calc(10px + 3 * ((100vw - 768px) / 431))
+        .carousel-control
+            display: none
         
     //fixing navbar-top 
     // .navbar
