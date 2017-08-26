@@ -12,8 +12,9 @@ $button-color:                  #e74545
 $hero-layer-color:              rgba(43,46,74, 0.9)     //color of layer in hero/jumbotron
 $hero-bg:                       url('../img/bg2.jpeg') 0 70%  //image on hero's bg
 
+$features-tile-color:           #e74545
+
 $clients-font:                 'Cardo', serif
-$clients-2nd-font:              $main-font
 
 $footer-color:                  #393d63
 $footer-font-color:             $nav-font-color   
@@ -27,6 +28,11 @@ $credits-add-font-color:        $hero-font-color
     width:          $width
     line-height:    $width
 
+@mixin bolded_paragraph 
+    font-size: 13px
+    font-weight: 700
+    text-transform: uppercase
+
 
 @mixin clearfix()
     &:after,
@@ -37,6 +43,9 @@ $credits-add-font-color:        $hero-font-color
 
 .row
     @include clearfix
+
+body
+    font-family: $main-font
 
 header
     &::after
@@ -75,11 +84,9 @@ header
         >a
             padding-top: 15px
             padding-bottom: 15px
-            text-transform: uppercase
             color: $nav-font-color
-            font-weight: 700
-            font-size: 13px
-            font-family: $main-font
+            @include bolded_paragraph()
+            
             transition-property: color, background, padding, margin, text-shadow
             transition-duration: .3s, .3s, .3s, .3s, .3s
             transition-delay: .0s, .3s, .3s, .3s, .0s
@@ -132,7 +139,7 @@ header
             padding-right: 15px
         p
             font-size: 22px
-            font-family: $main-font
+            
             max-width: 875px
             font-weight: 300
             flex: 0 1 auto
@@ -149,7 +156,7 @@ header
     border: 0
     border-radius: 2px
     font-size: 13px
-    font-family: $main-font
+    
     font-weight: 500
     color: $nav-font-color
     transition: .3s
@@ -157,6 +164,28 @@ header
         background-color: adjust-color($button-color, $red: -32, $green: -32, $blue: -32)
         color: $hero-font-color 
         font-weight: 600
+
+.features 
+    >div
+        margin-bottom: 70px
+        margin-top: 70px
+        >div
+            text-align: center
+            font-size: 13px
+            font-family: 
+            padding: 40px 60px
+            
+    svg
+        path
+            fill: $features-tile-color 
+        height: 60px
+    h3
+        text-transform: uppercase
+        font-weight: 600    
+    p   
+        &:first-of-type
+            @include bolded_paragraph
+            margin-top: 30px
 
 .clients
     background-color: #533549
@@ -167,16 +196,12 @@ header
     margin-bottom: 20px
     padding: 20px 25px
     position: static
-    
     q
-        
         font-family: $clients-font
         font-style: italic
         font-size: calc(15px + 5 * ((100vw - 320px) / 448))
     p
-        font-family: $clients-2nd-font
-        font-weight: 600
-        font-size: 10px
+        @include bolded_paragraph()
         margin-top: 30px
 
 
@@ -187,16 +212,14 @@ header
     justify-content: center
     align-content: center
     min-height: 340px
-    font-family: $main-font
+    
     text-align: center
     padding: 20px 25px
     h2
         font-size: 28px
         font-weight: 300
     p
-        font-size: 13px
-        font-weight: 700
-        text-transform: uppercase
+        @include bolded_paragraph()
     a
         padding: 20px 80px
         margin-top: 15px
@@ -206,7 +229,7 @@ footer
     min-height: 340px
     background-color: $footer-color 
     color: white
-    font-family: $main-font
+    
     text-align: center
     .row
         padding-top: 50px
