@@ -10,7 +10,8 @@ $nav-height-min:                50px                     //height on mobile devi
 
 $button-color:                  #e74545
 $hero-layer-color:              rgba(43,46,74, 0.9)     //color of layer in hero/jumbotron
-$hero-bg:                       url('../img/bg2.jpeg') 0 70%  //image on hero's bg
+$hero-bg:                       url('../img/bg1.jpeg') 50% 50%  //image on hero's bg
+// $hero-bg:                       url('../img/bg2.jpeg') 0 70%  //image on hero's bg
 
 $features-tile-color:           #e74545
 
@@ -165,7 +166,7 @@ header
 
 .features 
     >div
-        margin-bottom: 70px
+        margin-bottom: 20px
         margin-top: 70px
         >div
             text-align: center
@@ -187,7 +188,7 @@ header
             @include boldedUpperCaseText(13px)
             margin-top: 30px
 .gallery 
-    padding: 0
+    padding: 70px 0 0 0
     .wrapper
         padding: 0   
         text-align: center 
@@ -247,9 +248,63 @@ header
         h3
             @include boldedUpperCaseText(16px)
 
+.team
+    padding-top: 100px
+    margin-bottom: 20px
+    .col 
+        padding-bottom: 40px
+    img
+        // height: 250px
+        width: 100%           
+        // For browsers that do not support gradients
+        background: rgb(199, 199, 199) 
+        background: radial-gradient(#fffafa, #b8bcc3)
+    h2  
+        font-weight: 400
+        font-size: 22px
+    h3
+        font-size: 13px
+        text-transform: uppercase
+        color: $button-color
+    .fa 
+        +square(40px)
+        margin-right: 5px
+        border: 1px solid #c5c9cb
+        color: #c5c9cb
+        font-size: 22px
+        text-align: center
+        margin-top: 25px
+        transition: .25s
+        &:hover
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .6)
+        &.fa-facebook
+            &:hover
+                color: #3b5998
+        &.fa-twitter
+            &:hover
+                color: #55acee
+        &.fa-linkedin-square
+            &:hover
+                color: #007bb5
+        // &.fa-facebook
+        //     &:hover
+        //         background-color: #3b5998
+        //         color: #fff
+        // &.fa-twitter
+        //     &:hover
+        //         background-color: #55acee
+        //         color: #fff
+        // &.fa-linkedin-square
+        //     &:hover
+        //         background-color: #007bb5
+        //         color: #fff
+
+
 .clients
+    
+    padding: 80px 0 0 0
+.carousel
     background-color: #533549
-    padding: 0
 
 .carousel-caption
     background-color: rgba(83, 53, 73, .7)
@@ -335,7 +390,42 @@ footer
                 color: red
             b
                 color: $credits-add-font-color
-                font-weight: bold    
+                font-weight: bold   
+
+.back-to-top
+    margin: 0
+    position: fixed
+    bottom: 40px
+    right: 40px
+    width: 70px
+    height: 70px
+    z-index: 100
+    display: inline
+    text-decoration: none
+    color: #ffffff
+    background-color: #3ea736
+    text-align: center
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.6)
+    visibility: hidden
+    border-radius: 50%
+
+    i
+        font-size: 60px
+
+    &:hover,
+    &:focus
+        background-color: adjust-color($button-color, -36, -36, -36)
+        color: #fff   
+
+    &.is-visible 
+        /* the button becomes visible */
+        visibility: visible
+        opacity: 1
+
+    &.fade-out 
+        /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+        opacity: .5
+ 
 
 @media (min-width: 991px)
 
@@ -397,6 +487,14 @@ footer
         .credits
             height: 50px
             font-size: 11px
+
+    .back-to-top
+        bottom: 15px
+        right: 15px
+        width: 40px
+        height: 40px
+        i
+            font-size: 35px
 
 @media (min-width: 767px) 
 

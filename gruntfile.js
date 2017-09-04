@@ -20,8 +20,8 @@ module.exports = function(grunt) {
         postcss: {
             options: {
               map: {
-                  inline: false, // save all sourcemaps as separate files... 
-                  annotation: '/css/' // ...to the specified directory 
+                  inline: false // save all sourcemaps as separate files... 
+                 // annotation: 'css' // ...to the specified directory 
               },
          
               processors: [
@@ -59,9 +59,16 @@ module.exports = function(grunt) {
 
         uglify: {
             my_target: {
-                files: {
-                    'js/scripts.min.js': 'js/scripts.js'
-                }
+                options: {
+                    sourceMap: true,
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'js',
+                    src: ['*.js', '!*min.js'],
+                    dest: 'js',
+                    ext: '.min.js'
+                }]
             }
         },
 
