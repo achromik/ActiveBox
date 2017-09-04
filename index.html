@@ -19,7 +19,7 @@
 			}
 		  });
 		</script>
-		<script>
+		<!-- <script>
 		//  Initializng Tooltip and Popover from Bootstrap 
 			$(function () {
 				$('[data-toggle="tooltip"]').tooltip()
@@ -27,24 +27,8 @@
 			$(function () {
 				$('[data-toggle="popover"]').popover()
 			});
-		// auto collapse menu on mobile view after clicking on link
-			$(document).on('click','.navbar-collapse.in',function(e) {
-				if( $(e.target).is('a') ) {
-					$(this).collapse('hide');
-				}
-			});
-
-			$(window).scroll(function() {
-
-				if ($(this).scrollTop()>25) {
-						$('.navbar').fadeOut();
-				}
-				else {
-					$('.navbar').fadeIn();
-				}
-
-			});
-		</script>
+		
+		</script> -->
 	</head>
 	<body>
 		<!-- HEADER -->
@@ -123,7 +107,7 @@
 				</div>
 			</div>		
 		</section>
-		<section id="gallery" class="gallery container-fluid">
+		<section id="works" class="gallery container-fluid">
 			<div ="row">
 				<div class="col-xs-12 col-sm-6 col-md-3 wrapper">
 					<a href="#" class="tile">
@@ -278,6 +262,6 @@
 				</div>
 			</div>
 		</footer>
-		
+		<script async src="/js/scripts.min.js"></script>
 	</body>
 </html>
