@@ -28,8 +28,8 @@ $credits-add-font-color:        $hero-font-color
     width:          $width
     line-height:    $width
 
-@mixin bolded_paragraph 
-    font-size: 13px
+@mixin boldedUpperCaseText($size) 
+    font-size: $size
     font-weight: 700
     text-transform: uppercase
 
@@ -85,7 +85,7 @@ header
             padding-top: 15px
             padding-bottom: 15px
             color: $nav-font-color
-            @include bolded_paragraph()
+            @include boldedUpperCaseText(13px)
             
             transition-property: color, background, padding, margin, text-shadow
             transition-duration: .3s, .3s, .3s, .3s, .3s
@@ -128,11 +128,9 @@ header
         color: $hero-font-color
         text-align: center
         h1
-            font-size: 65px
-            font-weight: 600
+            @include boldedUpperCaseText(65px)
             font-family: $secondary-font
             flex: 0 1 auto
-            text-transform: uppercase
             max-width: 900px
             margin-top: $nav-height
             padding-left: 15px
@@ -186,7 +184,7 @@ header
         font-weight: 600    
     p   
         &:first-of-type
-            @include bolded_paragraph
+            @include boldedUpperCaseText(13px)
             margin-top: 30px
 .gallery 
     padding: 0
@@ -247,9 +245,7 @@ header
         transform: translateY(-50%)
         backface-visibility: hidden
         h3
-            text-transform: uppercase
-            font-weight: 700     
-            font-size: 16px
+            @include boldedUpperCaseText(16px)
 
 .clients
     background-color: #533549
@@ -265,7 +261,7 @@ header
         font-style: italic
         font-size: calc(15px + 5 * ((100vw - 320px) / 448))
     p
-        @include bolded_paragraph()
+        @include boldedUpperCaseText(13px)
         margin-top: 30px
 
 
@@ -283,7 +279,7 @@ header
         font-size: 28px
         font-weight: 300
     p
-        @include bolded_paragraph()
+        @include boldedUpperCaseText(13px)
     a
         padding: 20px 80px
         margin-top: 15px
@@ -298,10 +294,8 @@ footer
     .row
         padding-top: 50px
     h3 
-        font-weight: bold 
-        font-size: 14px 
+        @include boldedUpperCaseText(14px)
         color: white
-        text-transform: uppercase
         margin-bottom: 15px
     p
         color: $footer-font-color
