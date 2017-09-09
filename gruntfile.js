@@ -72,6 +72,18 @@ module.exports = function(grunt) {
             }
         },
 
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'dist/index.html': 'index.html'     // 'destination': 'source'
+                
+              }
+            }
+        },
 
         // cssmin: {
         //     target: {
@@ -158,10 +170,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-browser-sync');
+
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
 
 
     // Default task(s).
     grunt.registerTask('default', ['sass', 'jshint', 'postcss:dist', 'imagemin', 'uglify', 'browserSync', 'watch']);
 
+    grunt.registerTask('distro', ['htmlmin']);
 };
