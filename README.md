@@ -11,3 +11,4 @@ Used technologies:
 - Sass
 - JavaScript
 - Bootsrtap v3
+- jQuery
